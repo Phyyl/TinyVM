@@ -11,6 +11,8 @@ namespace TinyVM
     {
         public VirtualMachineMemory Memory { get; } = new();
         public VirtualMachineRegisters Registers { get; } = new();
+        
+        private int? exitCode;
 
         public bool LoadProgram(Span<byte> data)
         {
@@ -19,9 +21,22 @@ namespace TinyVM
                 return false;
             }
 
-            data.CopyTo(Memory.Program.Byte);
+            data.CopyTo(Memory.Program);
 
             return true;
+        }
+
+        public void Run()
+        {
+            while (exitCode is null)
+            {
+                Step();
+            }
+        }
+        
+        public void Step()
+        {
+            
         }
     }
 }

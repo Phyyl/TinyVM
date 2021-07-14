@@ -8,8 +8,8 @@ namespace TinyVM
         static void Main(string[] args)
         {
             VirtualMachine vm = new();
-
-            var x = vm.Memory.Ram[2..3][0..];
+            
+            vm.Run();
         }
     }
 }
