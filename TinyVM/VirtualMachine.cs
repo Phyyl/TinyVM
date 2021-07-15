@@ -12,8 +12,6 @@ namespace TinyVM
         public VirtualMachineMemory Memory { get; } = new();
         public VirtualMachineRegisters Registers { get; } = new();
         
-        private int? exitCode;
-
         public bool LoadProgram(Span<byte> data)
         {
             if (data.Length > Memory.Program.Length)
@@ -36,7 +34,7 @@ namespace TinyVM
         
         public void Step()
         {
-            
+            Memory.Stack[Registers.SP];
         }
     }
 }
